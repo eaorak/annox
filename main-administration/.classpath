@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry exported="true" kind="lib" path="resources/lib/slf4j-api-1.6.2.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="resources/lib"/>
+	<classpathentry kind="src" path="test"/>
+	<classpathentry kind="lib" path="resources/lib/gson-1.7.1.jar" sourcepath="/elron/dev/libs/google-gson-1.7.1/gson-1.7.1-sources.jar"/>
+	<classpathentry kind="lib" path="resources/lib/mongo-2.6.3.jar"/>
+	<classpathentry kind="lib" path="resources/lib/hibernate-validator-4.2.0.Final.jar"/>
+	<classpathentry kind="lib" path="resources/lib/jolokia-osgi-bundle-1.0.2.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

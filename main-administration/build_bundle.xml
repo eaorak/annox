@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="main-administration" default="release-bundle" basedir=".">
+	<property name="master.dir" value=".." />
+
+	<import file="../sp-builder/builders/main/build_directory.xml" />
+	<import file="../sp-builder/builders/main/build_bundle.xml" />
+	<import file="../sp-builder/builders/main/build_classpath.xml" />
+
+	<target name="init-bundle">
+		<!-- *****///// CHANGE HERE \\\\\***** -->
+		<property name="jar.name" value="main-administration" />
+		<path id="plugin.classpath">
+			<!-- *****///// CHANGE HERE \\\\\***** -->
+			<path refid="classpath.general" />
+			<path refid="classpath.api-kernel" />
+			<path refid="classpath.api-administration" />
+		</path>
+		<property name="bundle.classpath" refid="plugin.classpath" />
+		<!-- *****///// CHANGE HERE \\\\\***** -->
+		<pathconvert property="file.includes" pathsep=",">
+			<path>
+				<fileset dir="${basedir}" id="bundle.resources">
+					<include name="META-INF/" />
+					<include name="resources/lib/" />
+				</fileset>
+			</path>
+		</pathconvert>
+	</target>
+
+	<!-- == [release-bundle][release] :   == -->
+	<target name="release-bundle" depends="init,init-bundle" description="Use this target for release this bundle by using this build_bundle.xml ">
+		<input message="Release task : " addproperty="release.task.input" />
+		<antcall target="build">
+			<param name="release.task" value="${release.task.input}" />
+			<param name="destination" value="${dir.osgi.bundles}" />
+			<param name="release.file" value="${basedir}/release.txt" />
+		</antcall>
+		<delete file="${basedir}/release.txt" />
+	</target>
+
+	<!-- == [release-bundle-build][release] : Burayi kullanma  == -->
+	<target name="release-bundle-build" depends="init,init-bundle" description="Dont use here!!!">
+		<antcall target="build" />
+		<delete file="${basedir}/release.txt" />
+	</target>
+	<!-- == [debug-bundle][debug] : Bu build_bundle.xml den debug jar cikarmak icin kullan== -->
+	<target name="debug-bundle" depends="init,init-bundle" description="Use for building a debug jar">
+		<antcall target="build_debug">
+			<param name="destination" value="${dir.osgi.bundles}" />
+		</antcall>
+		<delete file="${basedir}/release.txt" />
+	</target>
+
+	<!-- == [debug-bundle-build][debug] : Burayi kullanma  == -->
+	<target name="debug-bundle-build" depends="init,init-bundle" description="Dont use here!!!">
+		<antcall target="build_debug" />
+		<delete file="${basedir}/release.txt" />
+	</target>
+
+</project>

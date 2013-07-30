@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="api-administration" default="debug-bundle" basedir=".">
+	<property name="master.dir" value=".." />
+
+	<import file="../sp-builder/builders/main/build_directory.xml" />
+	<import file="../sp-builder/builders/main/build_bundle.xml" />
+	<import file="../sp-builder/builders/main/build_classpath.xml" />
+
+	<target name="init-bundle">
+		<!-- *****///// CHANGE HERE \\\\\***** -->
+		<property name="jar.name" value="api-administration" />
+		<path id="plugin.classpath">
+			<!-- *****///// CHANGE HERE \\\\\***** -->
+			<path refid="classpath.general" />
+			<path refid="classpath.api-kernel" />
+		</path>
+		<property name="bundle.classpath" refid="plugin.classpath" />
+		<!-- *****///// CHANGE HERE \\\\\***** -->
+		<pathconvert property="file.includes" pathsep=",">
+			<path>
+				<fileset dir="${basedir}" id="bundle.resources">
+					<include name="META-INF/" />
+					<include name="resources/lib/" />
+				</fileset>
+			</path>
+		</pathconvert>
+	</target>
+
+	<!-- == [debug-bundle][debug] : Bu build_bundle.xml den debug jar cikarmak icin kullan== -->
+	<target name="debug-bundle" depends="init,init-bundle" description="Use for building a debug jar">
+		<antcall target="build_debug">
+			<param name="destination" value="${dir.osgi.bundles}" />
+		</antcall>
+		<delete file="${basedir}/release.txt" />
+	</target>
+
+</project>
