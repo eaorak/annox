@@ -1,6 +1,0 @@
-eclipse.preferences.version=1
-externalMigrateFromAuthorizationDatabase/isMigrated=true
-migrateFromAuthorizationDatabase/isMigrated=true
-repositories/401ed6d805f900121c9186d9e33b03a2=401ed6d805f900121c9186d9e33b03a2;svn+ssh\://217.131.129.53\:2442/SProject/main-administration;svn+ssh\://217.131.129.53\:2442/SProject/main-administration;branches;tags;trunk;true;;;;false;;;0
-repositories/701997d805f900121c9186d9e33b03a2=701997d805f900121c9186d9e33b03a2;svn+ssh\://217.131.129.53\:2442/SProject/api-administration;svn+ssh\://217.131.129.53\:2442/SProject/api-administration;branches;tags;trunk;true;;;;false;;;0
-repositories/903ffa9206f900121c9186d9e33b03a2=903ffa9206f900121c9186d9e33b03a2;svn+ssh\://217.131.129.53\:2442/SProject/api-kernel;svn+ssh\://217.131.129.53\:2442/SProject/api-kernel;branches;tags;trunk;true;;;;false;;;0
